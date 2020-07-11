@@ -1,0 +1,50 @@
+/* .navbar-toggler {
+    outline:none;
+}
+#summary-counter {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5rem;
+    margin-bottom: .25rem;
+}
+#summary-counter.badge-pill {
+    padding-top: .5rem;
+}
+.navbar-brand {
+    text-transform: uppercase;
+    margin-top: -2.5px;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f9fa!important;
+}
+@media (min-width: 992px)  {
+    .dropdown.dropleft {
+        position: absolute;
+        right: 0;
+        margin-right: .5rem;
+    }
+}
+td[data-empty="free"] {
+ background-color: #b8e994;
+    color: #545454;
+    font-weight: bold;
+}
+td[data-empty="dirty"] {
+    background-color: #60a3bc;
+    color: #fff;
+}
+td[data-empty="busy"] {
+    background-color: #e55039;
+    color: #fff;
+}
+td[data-empty="repair"] {
+    background-color: black;
+    color: #FFFFFF;
+} */
+.hide-text {
+    display: none;
+}
