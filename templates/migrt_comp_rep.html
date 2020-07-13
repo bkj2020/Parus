@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+<!-- main content of appartment page views -->
+{% block parus %}
+    <!-- Begin Content -->
+    <div class="col-md-6">
+        <!-- General Unify Forms -->
+        <div class="card mt-3">
+            <div class="card-header">
+                <b class="card-title m-0 text-uppercase a">Отчет по компаниям в Миграционную службу</b>
+            </div>
+            <form class="sky-form card-body" method="post" autocomplete="off" role="form" name="migr_frm" id="migr_frm">
+                {% csrf_token %}
+                <fieldset>
+                    <div class="row">
+
+                        <section class="col col-6 form-group">
+                            <select id="comp" name="comp">
+                                {% for cmpn in queryset_comp %}
+                                    <li>
+                                        <option value="{{ cmpn.company }}">{{ cmpn.company }}</option>
+                                    </li>
+                                {% endfor %}
+                            </select>
+                        </section>
+
+                    </div>
+                    <div class="row">
+                        <section class="col col-6 form-group">
+                            <label class="label" for="start"><b>Start date</b></label>
+                            <input class="form-control" type="date" name="start" id="start" placeholder="YYYY/MM/DD"/>
+                        </section>
+                    </div>
+                    <div class="row">
+                        <section class="col col-6 form-group">
+                            <label class="label" for="start"><b>Finish date</b></label>
+                            <input class="form-control" type="date" name="finish" id="finish"/>
+                        </section>
+                    </div>
+                </fieldset>
+                <button type="submit" class="btn btn-primary">Создать отчет</button>
+            </form>
+        </div>
+    </div>
+{% endblock parus %}

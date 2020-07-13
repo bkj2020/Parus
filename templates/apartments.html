@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load get_item %}
+<!-- main content of appartment page views -->
+    {% block parus %}
+        {% csrf_token %}
+        <div class="container-fluid mt-1">
+            <table class="table table-bordered">
+                <thead>
+                    <tr align="center">
+                        {% for fl in floors.keys %}
+                            <th>{{ fl }} этаж</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for floor in rooms.values %}
+                        <tr align="center">
+                            {% for room in floor %}
+                                <td {% if room != 0 %} data-empty="{{ room_stat|get_item:room }}" {% endif %}>
+                                    {% if room != 0 %}
+                                        {{ room }}<sup>{{ room_prop|get_item:room }}</sup>
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endblock parus %}

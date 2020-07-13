@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>parus</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}" />
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static 'MDB/css/bootstrap.min.css' %}" />
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="{% static 'MDB/css/mdb.min.css' %}" />
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+    {% csrf_token %}
+    <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="{% url 'app-apartments' %}"><i class="fa fa-hotel" style="font-size:30px;color:lightskyblue"></i><span class="sr-only">(current)</span></a>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'app-apartments' %}">Апартаменты
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Постояльцы</a>
+                </li>
+                <!-- Отчеты -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Отчеты</a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'app-rep-g' %}">Отчет по проживающим</a>
+                        <a class="dropdown-item" href="{% url 'app-rep-m' %}">Отчет в миграционную службу</a>
+                        <a class="dropdown-item" href="{% url 'app-rep-m-c' %}">Отчет по компаниям в миграционную службу</a>
+                        <a class="dropdown-item" href="{% url 'cntr-rep' %}">Отчет по странам в миграционную службу</a>
+                    </div>
+
+                </li>
+                <!-- Сформировать -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Сформировать</a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Свободный номер</a>
+                        <a class="dropdown-item" href="#">Занятый номер</a>
+                        <a class="dropdown-item" href="#">Необходимо убраться</a>
+                        <a class="dropdown-item" href="#">Номер ремонтируется</a>
+                    </div>
+                </li>
+                <!-- Навигация -->
+                <li class="nav-item dropdown dropleft">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Навигация</a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Изменить пароль</a>
+                        <a class="dropdown-item" href="#">Админ панель</a>
+                        <a class="dropdown-item" href="#">Выход</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- Links -->
+        </div>
+    </nav>
+    <!--/.Navbar-->
+
+    {% block parus %}
+    {% endblock parus %}
+
+    <!-- Footer -->
+{% comment %}
+    <footer class="page-footer font-small blue">
+            <div class="row" id="summary-counter">
+                <span class="badge badge-success badge-pill">Свободныe<b> - {{ room_info.1 }}</b></span>
+                <span class="badge badge-danger badge-pill">Занятыe<b> - {{ room_info.2 }}</b></span>
+                <span class="badge badge-info badge-pill">уборка<b> - {{ room_info.3 }}</b></span>
+                <span class="badge badge-dark badge-pill">ремонтируются<b> - {{ room_info.0 }}</b></span>
+            </div>
+    </footer>
+{% endcomment %}
+
+    <!-- end Footer -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="{% static 'MDB/js/jquery-3.3.1.min.js' %}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{% static 'MDB/js/popper.min.js' %}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{% static 'MDB/js/bootstrap.min.js' %}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{% static 'MDB/js/mdb.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+    <!-- end of block script -->
+</body>
+</html>
